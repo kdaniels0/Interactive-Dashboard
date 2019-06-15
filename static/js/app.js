@@ -5,6 +5,7 @@ function buildMetadata(sample) {
   var metadata = d3.select("#sample-metadata");
   var url = "/metadata/" + sample;
   d3.json(url).then(function(response) {
+    metadata.html("");
     Object.entries(response).forEach(([k, v]) => metadata.append("p").text(`${k}: ${v}`));
   });
     // BONUS: Build the Gauge Chart
